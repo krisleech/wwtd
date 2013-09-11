@@ -90,6 +90,10 @@ describe WWTD do
         write "Rakefile", "task(:default) { puts %Q{RUBY: \#{RUBY_ENGINE}-#{RUBY_VERSION}} }"
         wwtd("").should include "RUBY: jruby-1.8"
       end
+
+      it 'runs with rbx-20' do
+
+      end
     end
 
     it "runs with given gemfile" do
