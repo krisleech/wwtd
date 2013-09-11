@@ -84,6 +84,12 @@ describe WWTD do
       wwtd("").should include "RUBY: jruby-1.9"
     end
 
+    it "runs with given travis version" do
+      write ".travis.yml", "rvm: jruby-18mode"
+      write "Rakefile", "task(:default) { puts %Q{RUBY: \#{RUBY_ENGINE}-#{RUBY_VERSION}} }"
+      wwtd("").should include "RUBY: jruby-1.8"
+    end
+
     it "runs with given gemfile" do
       write_default_gemfile
       bundle
